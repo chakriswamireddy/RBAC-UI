@@ -32,7 +32,7 @@ function AddEditUser({ mode, userToEdit }) {
                 : addNewUser({ name: userName, status, role })
             setGoodSubmit(true);
 
-            if (!usersData.find((user) => user.name === userName)) {
+            if  (( mode!=='edit' && !usersData.find((user) => user.name === userName) || (mode==='edit') )) {
 
 
                 document.getElementById('my_modal_1').close();
@@ -52,7 +52,7 @@ function AddEditUser({ mode, userToEdit }) {
             setStatus(userToEdit.status);
         }
 
-        console.log(mode)
+        // console.log(mode)
 
     }, [userToEdit])
 
@@ -70,7 +70,7 @@ function AddEditUser({ mode, userToEdit }) {
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box flex flex-col shadow-xl  border-blue-400">
                     <form method="dialog">
-                        {userToEdit?.name}
+                        {/* {userToEdit?.name} */}
 
                         <button onClick={() => clearForm()} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                     </form>
@@ -109,9 +109,9 @@ function AddEditUser({ mode, userToEdit }) {
                             ))}
                         </select>
 
-                        <div className='w-2/3   pl-4 flex gap-2' >
+                        <div className='w-4/5   pl-4 grid grid-cols-3 border-0 border-blue-500  gap-2 justify-evenly' >
                             {role && roles[role].length > 0 && roles[role].map((perm) => (
-                                <div key={perm} className="badge badge-primary px-4 py-3"> {perm} </div>
+                                <div key={perm} className="badge badge-primary text-xs sm:text-sm sm:px-3 sm:py-2"> {perm} </div>
                             ))}
                         </div>
 

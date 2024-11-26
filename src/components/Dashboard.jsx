@@ -28,7 +28,7 @@ const usersData = useUserStore(state => state.usersData)
         </figure>
         {/* </div> */}
         <div className="card-body">
-          <h1 className="card-title text-2xl underline underline-offset-0 italic">Statistics</h1>
+          <h1 className="card-title text-2xl italic">Statistics</h1>
    
 
           

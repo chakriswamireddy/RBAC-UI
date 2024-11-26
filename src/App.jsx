@@ -23,8 +23,8 @@ function App() {
    <NavBar />
    
     <Routes>
-      <Route path='/' element={<Navigate to='/users' replace />} />
-      <Route path='/users' element={
+      {/* <Route path='/' element={<Navigate to='/users' replace />} /> */}
+      <Route path='/' element={
         <div className='flex flex-col gap-4'>
         {/* <Dashboard />
         <UsersTable /> */}
