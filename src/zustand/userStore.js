@@ -40,11 +40,9 @@ const useUserStore = create((set) => ({
 
       console.log(updatedData)
 
-      return state.usersData.find((user) => user.name == userD.name) 
-      ? { userErrMsg: "User Exists" } :
-      { usersData: updatedData }
-      // state.usersData.find((user) => user.id == userD.id)?
-      //   : { userErrMsg: "User Id Does not Exists" };
+      return state.usersData.find((user) => user.id == userD.id) 
+      ?{ usersData: updatedData } :
+       { userErrMsg: "User Doesn't Exists" }
     }),
 
   removeUser: (id) =>
