@@ -68,16 +68,16 @@ function AddEditUser({ mode, userToEdit }) {
     return (
         <div>
             <dialog id="my_modal_1" className="modal">
-                <div className="modal-box">
+                <div className="modal-box flex flex-col shadow-xl  border-blue-400">
                     <form method="dialog">
                         {userToEdit?.name}
 
                         <button onClick={() => clearForm()} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                     </form>
 
-                    <h3 className="font-bold text-lg"> {mode} User </h3>
+                    <h3 className="font-bold text-lg"> { mode && mode[0].toUpperCase() +  mode.slice(1)} User </h3>
                     <div className='flex flex-col items-start gap-4 justify-center  p-4
-                        mx-auto my-0 border-2 border-blue-900
+                        mx-auto my-0 border-0  border-blue-900
                     ' >
 
                         <label className="input input-sm input-bordered flex items-center gap-2 ">
@@ -102,7 +102,7 @@ function AddEditUser({ mode, userToEdit }) {
                             </label>
                         </div>
 
-                        <select className="select select-bordered w-1/2 max-w-xs" value={role} onChange={((e) => setRole(e.target.value))}>
+                        <select className="select select-bordered w-2/3 max-w-xs" value={role} onChange={((e) => setRole(e.target.value))}>
                             <option disabled value=''>Assign Role</option>
                             {Object.keys(roles).map((role) => (
                                 <option key={role} value={role}> {role}</option>
@@ -117,11 +117,11 @@ function AddEditUser({ mode, userToEdit }) {
 
                         <div className='  justify-self-end border-0 border-blue-900 ml-auto' >
 
-                            {/* <form method="dialog"> */}
-                            <button className='btn btn-secondary w-32' onClick={handleAddUser} > {mode === 'edit' ? 'Edit' : 'Add'} </button>
-                            {/* </form> */}
+                            <button className='btn btn-secondary w-32 btn-sm sm:btn-md' onClick={handleAddUser} > {mode === 'edit' ? 'Edit' : 'Add'} </button>
 
+                            {userErrMsg &&
                             <p className="py-4"> {'*' + userErrMsg} </p>
+                            }
                         </div>
 
                     </div>
