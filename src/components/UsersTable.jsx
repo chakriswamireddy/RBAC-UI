@@ -77,7 +77,7 @@ function UsersTable() {
         </button>
       </div>
 
-      <table className="table bg-blue-100 w-full rounded-xl " >
+      <table className="table bg-blue-100 w-full rounded-xl transition transition-opacity " >
         <thead>
           <tr>
             <th className=' text-sm'> User </th>
@@ -133,8 +133,10 @@ function UsersTable() {
           } */}
 
           {paginatedData?.map(({ id, img, name, status, role }) => (
-            <tr key={id} className=' border-0 border-blue-300'>
-              <td className='border-0  w-1/5 border-blue-500 text-center ' >
+            <tr key={id} 
+            className="border-0 border-blue-300 transition-transform ease-in-out delay-150 duration-300 hover:bg-blue-200"
+                        >
+              <td className='border-0  w-1/5 border-blue-500 text-center  ' >
 
 
 
@@ -175,7 +177,7 @@ function UsersTable() {
       </table>
 
       <ReactPaginate
-        pageCount={Math.ceil(usersData.length / itemsPerPage)}
+        pageCount={Math.ceil(searchedFilteredData?.length / itemsPerPage)}
         onPageChange={handlePageClick}
         containerClassName="pagination"
         activeClassName="active"

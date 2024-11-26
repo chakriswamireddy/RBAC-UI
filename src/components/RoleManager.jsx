@@ -3,7 +3,7 @@ import { useStore } from 'zustand'
 import useRoleStore from '../zustand/rolesStore'
 import ComboBox from '../shared/ComboBox';
 import { BiEdit } from 'react-icons/bi';
-import NewRoleRow from '../shared/NewRoleRow';
+import NewRoleRow from '../shared/NewEditRoleRow';
 import { AiOutlineDelete } from 'react-icons/ai';
 import DelPopup from '../shared/DelPopup';
 

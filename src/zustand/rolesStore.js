@@ -29,6 +29,8 @@ const useRoleStore = create((set) => ({
         
     })  ,
 
+    addPermissions: (item) => set((state) => ({permissions: [...state.permissions, item]})),
+
     resetRoleErrMsg: () => set(() => ({roleErrMsg:''}))
 
     

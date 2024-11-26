@@ -27,7 +27,7 @@ function NavBar() {
                     className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                    
                   
-                        <li> <NavLink to='/' className={`${({ isActive }) => (isActive ? 'text-secondary' : ' ')} active:text-secondary focus:text-secondary `} > Users </NavLink> </li>
+                        <li> <NavLink to='/users' className={`${({ isActive }) => (isActive ? 'text-secondary' : ' ')} active:text-secondary focus:text-secondary `} > Users </NavLink> </li>
                         <li> <NavLink to='/roles' className={`${({ isActive }) => (isActive ? 'text-secondary' : ' ')} active:text-secondary focus:text-secondary `} > Roles </NavLink> </li>
                     
                 </ul>
@@ -38,15 +38,15 @@ function NavBar() {
 
             {/* <div className='flex-1 flex gap-4 border-2 border-yellow-400'>
     <Link to='/roles'  > Roles </Link>
-    <Link to='/'  > Users </Link>
+    <Link to='/users'  > Users </Link>
     
 
 
   </div> */}
             <div className="navbar-center hidden lg:flex gap-10 flex-1  ">
                 <ul className="menu menu-horizontal px-1 gap-4  ">
-                    <li> <NavLink to='/' className={`${({ isActive }) => (isActive ? 'text-secondary' : ' ')} active:text-secondary focus:text-secondary `} > Users </NavLink> </li>
-                    <li> <NavLink to='/roles' className={`${({ isActive }) => (isActive ? 'text-secondary' : ' ')} active:text-secondary focus:text-secondary `} > Roles </NavLink> </li>
+                    <li> <NavLink to='/users' className={`${({ isActive }) => (isActive ? 'text-secondary' : ' ')} active:text-secondary focus:text-secondary transition ease-in-out delay-100 duration-300`} > Users </NavLink> </li>
+                    <li> <NavLink to='/roles' className={`${({ isActive }) => (isActive ? 'text-secondary' : ' ')} active:text-secondary focus:text-secondary transition ease-in-out delay-100 duration-300`} > Roles </NavLink> </li>
                 </ul>
             </div>
             <div className="flex-none">
