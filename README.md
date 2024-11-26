@@ -24,13 +24,12 @@ The **Role and Users Management App** is a comprehensive and robust solution for
 
 3. **Dynamic Permissions**:
    - Assign permissions such as Read, Write, and Delete to roles.
-   - Clearly display permissions for ease of understanding and updates.
+   - Define custom permissions for roles and reuse them across other roles.
 
 4. **Data Tables**:
    - Implemented custom **React-Paginate** for manual pagination.
    - Added filtering for ease of searching.
-   - Opted against **React Window** to retain custom table styles.
-
+   
 ---
 
 ## Performance Optimizations

@@ -27,9 +27,9 @@ function UsersTable() {
   const [currentPage, setCurrentPage] = useState(0);
 
 
-  const [paginatedData,setPaginatedData] = useState(null);
+  const [paginatedData, setPaginatedData] = useState(null);
 
-  const [searchKey,setSearchKey] = useState('')
+  const [searchKey, setSearchKey] = useState('')
 
 
   const handlePageClick = (event) => {
@@ -38,28 +38,28 @@ function UsersTable() {
 
   const [searchedFilteredData, setSearchedFilteredData] = useState(null)
 
-  useEffect(()=> {
+  useEffect(() => {
     setSearchKey('')
     setSearchedFilteredData(usersData)
-  },[usersData])
+  }, [usersData])
 
 
   const handleSearchUser = (val) => {
-    if (val!==null) { 
+    if (val !== null) {
       setSearchKey(val)
       setSearchedFilteredData(usersData.filter((user) => user.name.toLowerCase().includes(val.toLowerCase())));
-       
-     }
+
+    }
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     setPaginatedData(searchedFilteredData?.slice(
       currentPage * itemsPerPage,
       (currentPage + 1) * itemsPerPage
     ))
 
 
-  },[searchedFilteredData,currentPage])
+  }, [searchedFilteredData, currentPage])
 
 
 
@@ -67,11 +67,23 @@ function UsersTable() {
     <div className="overflow-x-auto mx-auto flex flex-col border-0 gap-4 border-pink-400 w-full sm:w-3/4  max-w-2xl">
       <div className='w-full self-end flex align-center justify-between border-0 border-blue-300 gap-6'>
 
+        <label className="input input-sm input-bordered focus:ring-0 focus:outline-none flex items-center gap-2 w-1/3 max-w-xs input-sm my-auto ">
 
-        <input value={searchKey} onChange={(e) => handleSearchUser(e.target.value)} type="text" placeholder="Search User" 
-        className="input input-bordered w-1/3 max-w-xs input-sm my-auto focus:outline-none" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            className="h-4 w-4 opacity-70">
+            <path
+              fillRule="evenodd"
+              d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+              clipRule="evenodd" />
+          </svg>
+          <input value={searchKey} onChange={(e) => handleSearchUser(e.target.value)} type="text" placeholder="Search User"
+            className="focus:outline-none focus:ring-0" />
+        </label>
 
-        <button className='btn btn-info btn-sm sm:btn'  onClick={() => { setMode('add'); setUserToEdit(null); document.getElementById('my_modal_1').showModal() }} >
+        <button className='btn btn-info btn-sm sm:btn' onClick={() => { setMode('add'); setUserToEdit(null); document.getElementById('my_modal_1').showModal() }} >
           Add User
           <img src={plusPng} className='h-6 w-6' />
         </button>
@@ -90,52 +102,10 @@ function UsersTable() {
         <tbody>
 
 
-
-          {/* {usersData.length > 0 && usersData.map(({ id, img, name, status, role }) => (
-
-
-            <tr key={id} className=' border-0 border-blue-300'>
-              <td className='border-0  w-1/5 border-blue-500 text-center ' >
-
-
-
-
-                <div className="flex items-center gap-3 border-0 w-max border-blue-500">
-                  <div className="avatar">
-                    <div className="mask mask-squircle h-8 w-8 sm:h-12 sm:w-12">
-                      <img alt={img} src={`https://api.dicebear.com/9.x/personas/svg?seed=${img}`} />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-medium text-xs sm:text-sm"> {name} </div>
-                  </div>
-                </div>
-              </td>
-              <td className='border-0 sm:w-32 border-blue-500 p-1 sm:p-4' >
-                <div className={classNames('text-xs sm:text-sm w-max border-0 border-red-200 p-2 sm:p-2',
-                  status === 'Active' ? `badge badge-success` : `badge badge-warning text-slate-200`
-                )}> {status} </div>
-              </td>
-              <td className='border-0 border-blue-500 text-center text-xs sm:text-sm ' > {role}</td>
-              <td className='border-0 border-blue-500 text-center '>
-                <div className='flex gap-3 items-center justify-center gap-4'>
-                  <button onClick={() => { setMode('edit'); setUserToEdit({ id, img, name, status, role }); document.getElementById('my_modal_1').showModal() }} >
-
-                    <BiEdit className='  text-info text-xl md:text-2xl' />
-                  </button>
-                  <button onClick={() => { setDeleteId(id); document.getElementById('del_user_modal').showModal() }}>
-                    <AiOutlineDelete fontSize='20px' className='text-error' />
-                  </button>
-                </div>
-              </td>
-            </tr>
-          ))
-          } */}
-
           {paginatedData?.map(({ id, img, name, status, role }) => (
-            <tr key={id} 
-            className="border-0 border-blue-300 transition-transform ease-in-out delay-150 duration-300 hover:bg-blue-200"
-                        >
+            <tr key={id}
+              className="border-0 border-blue-300 transition-transform ease-in-out delay-150 duration-300 hover:bg-blue-200"
+            >
               <td className='border-0  w-1/5 border-blue-500 text-center  ' >
 
 
