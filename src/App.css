@@ -13,6 +13,10 @@
     /* width: 40px;/ */
 }
 
+.pagination li:hover {
+    background:oklch(64.41% 0.19 260 / 32.6%);
+}
+
 .pagination .active {
     background: oklch(0.63 0.19 260);
    
